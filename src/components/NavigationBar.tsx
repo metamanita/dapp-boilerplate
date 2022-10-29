@@ -21,6 +21,8 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  useColorMode,
+  Button,
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -31,6 +33,8 @@ import {
   FiMenu,
   FiBell,
   FiChevronDown,
+  FiSun,
+  FiMoon,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -53,6 +57,8 @@ export default function SidebarWithHeader({
   children: ReactNode;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
+  
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
@@ -149,6 +155,7 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const { toggleColorMode, colorMode } = useColorMode()
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -177,6 +184,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       </Text>
 
       <HStack spacing={{ base: '0', md: '6' }}>
+      <Button
+          size="lg"
+          variant="ghost"
+          aria-label="toggleColor"
+          onClick={toggleColorMode}
+        >{colorMode === 'light' ?<FiMoon />:<FiSun />}</Button>
         <IconButton
           size="lg"
           variant="ghost"

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ColorModeScript } from '@chakra-ui/react'
+import theme from './theme';
 
 import { DAppProvider } from "@usedapp/core";
 
@@ -21,6 +23,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <DAppProvider config={config}>
       <App />
     </DAppProvider>
