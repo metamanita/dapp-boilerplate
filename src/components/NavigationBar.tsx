@@ -31,13 +31,13 @@ import {
   FiStar,
   FiSettings,
   FiMenu,
-  FiBell,
   FiChevronDown,
   FiSun,
   FiMoon,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import ConnectButton from './ConnectButton';
 
 interface LinkItemProps {
   name: string;
@@ -156,6 +156,7 @@ interface MobileProps extends FlexProps {
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { toggleColorMode, colorMode } = useColorMode()
+  
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -183,19 +184,17 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         Logo
       </Text>
 
-      <HStack spacing={{ base: '0', md: '6' }}>
+      <HStack spacing={{ base: '0', md: '2' }}>
       <Button
           size="lg"
-          variant="ghost"
+          variant="link"
           aria-label="toggleColor"
           onClick={toggleColorMode}
-        >{colorMode === 'light' ?<FiMoon />:<FiSun />}</Button>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+        >
+          {colorMode === 'light' ?<FiMoon />:<FiSun />}
+        </Button>
+        <ConnectButton handleOpenModal={{}} />
+
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
