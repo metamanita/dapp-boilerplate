@@ -6,17 +6,27 @@ import reportWebVitals from './reportWebVitals';
 import { ColorModeScript } from '@chakra-ui/react'
 import theme from './theme';
 
-import { DAppProvider } from "@usedapp/core";
+import { Mainnet, DAppProvider, useTokenBalance, useEthers, Config, Goerli } from '@usedapp/core'
+import { getDefaultProvider } from 'ethers'
 
-import { Mainnet } from '@usedapp/core'
+// import { Mainnet } from '@usedapp/core'
+
+import { BrowserRouter, Outlet } from "react-router-dom";
 
 
-const config = {
+const config: Config = {
   readOnlyChainId: Mainnet.chainId,
   readOnlyUrls: {
-    [Mainnet.chainId]: 'https://mainnet.infura.io/v3/ab4e972030894b5a979e8a1c6640dc03',
+    [Mainnet.chainId]: getDefaultProvider('mainnet'),
+    [Goerli.chainId]: getDefaultProvider('goerli'),
   },
 }
+// const config = {
+//   readOnlyChainId: Mainnet.chainId,
+//   readOnlyUrls: {
+//     [Mainnet.chainId]: 'https://mainnet.infura.io/v3/ab4e972030894b5a979e8a1c6640dc03',
+//   },
+// }
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,7 +35,9 @@ root.render(
   <React.StrictMode>
      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <DAppProvider config={config}>
+        
       <App />
+      
     </DAppProvider>
   </React.StrictMode>
 );

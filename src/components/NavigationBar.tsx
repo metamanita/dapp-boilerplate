@@ -24,6 +24,10 @@ import {
   useColorMode,
   Button,
 } from '@chakra-ui/react';
+
+import { Link as ReachLink, Outlet} from 'react-router-dom'
+import AppRouter from '../AppRouter';
+
 import {
   FiHome,
   FiTrendingUp,
@@ -42,13 +46,14 @@ import ConnectButton from './ConnectButton';
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  route: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome },
-  { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Welcome', icon: FiHome, route: '/welcome' },
+  { name: 'Account', icon: FiTrendingUp, route: '/account'  },
+  { name: 'Explore', icon: FiCompass, route: '/welcome' },
+  { name: 'Favourites', icon: FiStar, route: '/welcome' },
+  { name: 'Settings', icon: FiSettings, route: '/welcome' },
 ];
 
 export default function SidebarWithHeader({
@@ -108,7 +113,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} route={link.route}>
           {link.name}
         </NavItem>
       ))}
@@ -119,10 +124,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  route: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, route, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link as={ReachLink} to={route} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
