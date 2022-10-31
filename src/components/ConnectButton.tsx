@@ -3,16 +3,19 @@ import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
 
-
-export default function ConnectButton( Props: any ) {
+export default function ConnectButton(Props: any) {
     const { activateBrowserWallet, account } = useEthers();
     const etherBalance = useEtherBalance(account);
 
     function handleConnectWallet() {
-        activateBrowserWallet();
+        const ethereum = (window as any).ethereum;
+        if (!ethereum){
+            alert("No Metamask browser extension found...please install or activate")
+        }
+        else {
+            activateBrowserWallet();
+        }
     }
-
-
 
     return account ? (
         <Box
@@ -21,7 +24,7 @@ export default function ConnectButton( Props: any ) {
             background="gray.700"
             borderRadius="xl"
             py="0"
-            
+
         >
             <Box px="3">
                 <Text color="white" fontSize="sm">
