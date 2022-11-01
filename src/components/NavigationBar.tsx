@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import {
   IconButton,
   Avatar,
@@ -25,8 +25,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-import { Link as ReachLink, Outlet} from 'react-router-dom'
-import AppRouter from '../AppRouter';
+import { Link as ReachLink} from 'react-router-dom'
 
 import {
   FiHome,
@@ -77,7 +76,7 @@ export default function SidebarWithHeader({
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        size="sm">
         <DrawerContent>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
