@@ -1,12 +1,10 @@
 import { ReactNode } from 'react';
 import {
   IconButton,
-  Avatar,
   Box,
   CloseButton,
   Flex,
   HStack,
-  VStack,
   Icon,
   useColorModeValue,
   Link,
@@ -16,11 +14,6 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
   useColorMode,
   Button,
 } from '@chakra-ui/react';
@@ -34,7 +27,6 @@ import {
   FiStar,
   FiSettings,
   FiMenu,
-  FiChevronDown,
   FiSun,
   FiMoon,
 } from 'react-icons/fi';
