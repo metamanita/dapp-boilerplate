@@ -6,12 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { ColorModeScript } from '@chakra-ui/react'
 import theme from './theme';
 
-import { Mainnet, DAppProvider, useTokenBalance, useEthers, Config, Goerli } from '@usedapp/core'
+import { Mainnet, DAppProvider, Config, Goerli, Mumbai, Polygon } from '@usedapp/core'
 import { getDefaultProvider } from 'ethers'
-
-// import { Mainnet } from '@usedapp/core'
-
-import { BrowserRouter, Outlet } from "react-router-dom";
 
 
 const config: Config = {
@@ -19,7 +15,10 @@ const config: Config = {
   readOnlyUrls: {
     [Mainnet.chainId]: getDefaultProvider('mainnet'),
     [Goerli.chainId]: getDefaultProvider('goerli'),
+    [Polygon.chainId]: 'https://polygon-mainnet.g.alchemy.com/v2/52dAueBzsF4BxhKzXI_qnz4VXtkbg__A',
+    [Mumbai.chainId]: 'https://polygon-mumbai.g.alchemy.com/v2/7eqHdwIjf-Pj-V5hNVoajru7OKC3y12R',
   },
+  pollingInterval: 100000
 }
 // const config = {
 //   readOnlyChainId: Mainnet.chainId,
