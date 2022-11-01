@@ -10,7 +10,7 @@ export default function ConnectButton(Props: any) {
     function handleConnectWallet() {
         const ethereum = (window as any).ethereum;
         if (!ethereum){
-            alert("No Metamask browser extension found...please install or activate")
+            alert("No Metamask browser extension found. Please install or activate MetaMask")
         }
         else {
             activateBrowserWallet();
