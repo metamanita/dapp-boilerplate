@@ -5,9 +5,6 @@ import {
     Text,
     Button,
     Stack,
-    Icon,
-    useColorModeValue,
-    createIcon,
   } from '@chakra-ui/react';
 
 export default function Welcome(Props: any) {
