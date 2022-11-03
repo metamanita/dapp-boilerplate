@@ -30,7 +30,7 @@ export default function ConnectButton(Props: any) {
         >
             <Box px="3">
                 <Text fontSize="sm">
-                    {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
+                    {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)}
                 </Text>
             </Box>
             <Button
