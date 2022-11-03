@@ -1,4 +1,4 @@
-import { Button, Box, Text } from "@chakra-ui/react";
+import { Button, Box, Text, useColorModeValue } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
@@ -6,6 +6,8 @@ import Identicon from "./Identicon";
 export default function ConnectButton(Props: any) {
     const { activateBrowserWallet, account } = useEthers();
     const etherBalance = useEtherBalance(account);
+    const background = useColorModeValue('gray.100', 'gray.700')
+    const innerBackground = useColorModeValue('gray.300', 'gray.600')
 
     function handleConnectWallet() {
         const ethereum = (window as any).ethereum;
@@ -21,31 +23,30 @@ export default function ConnectButton(Props: any) {
         <Box
             display="flex"
             alignItems="center"
-            background="gray.700"
+            background={background}
             borderRadius="xl"
             py="0"
 
         >
             <Box px="3">
-                <Text color="white" fontSize="sm">
+                <Text fontSize="sm">
                     {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
                 </Text>
             </Box>
             <Button
-                bg="gray.800"
                 border="1px solid transparent"
+                bg={innerBackground}
                 _hover={{
                     border: "1px",
                     borderStyle: "solid",
                     borderColor: "blue.400",
-                    backgroundColor: "gray.700",
                 }}
                 borderRadius="xl"
                 m="1px"
                 px={3}
                 height="38px"
             >
-                <Text color="white" fontSize="md" fontWeight="medium" mr="2">
+                <Text fontSize="md" fontWeight="medium" mr="2" >
                     {account &&
                         `${account.slice(0, 6)}...${account.slice(
                             account.length - 4,
