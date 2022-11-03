@@ -10,7 +10,7 @@ return (
     <Routes>
     <Route path='/' element={<Welcome/>} />
       <Route path='/welcome' element={<Welcome/>} />
-      <Route path='/account' element={<Dashboard/>} />
+      <Route path='/dashboard' element={<Dashboard/>} />
     </Routes>
   </React.Suspense>
 );

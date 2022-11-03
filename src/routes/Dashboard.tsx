@@ -49,11 +49,11 @@ export default function Dashboard(Props: any) {
                 fontSize={'4xl'}
                 py={10}
                 fontWeight={'bold'}>
-                Account
+                Dashboard
             </chakra.h1>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
                 <StatsCard title={'Network'} stat={chainMeta.chainName} />
-                <StatsCard title={'Balance'} stat={etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} />
+                <StatsCard title={'Your Balance'} stat={etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} />
                 <StatsCard title={'Gas Price in gwei'} stat={gasPrice && parseFloat(formatUnits(gasPrice, 'gwei')).toFixed(3)} />
             </SimpleGrid>
         </Box>
