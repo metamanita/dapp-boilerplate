@@ -9,23 +9,16 @@ import theme from './theme';
 import { Mainnet, DAppProvider, Config, Goerli, Mumbai, Polygon } from '@usedapp/core'
 import { getDefaultProvider } from 'ethers'
 
+console.log(process.env.REACT_APP_POLYGON_PROVIDER)
 
 const config: Config = {
-  readOnlyChainId: Mainnet.chainId,
+  readOnlyChainId: Mumbai.chainId,
   readOnlyUrls: {
-    [Mainnet.chainId]: getDefaultProvider('mainnet'),
-    [Goerli.chainId]: getDefaultProvider('goerli'),
-    [Polygon.chainId]: 'https://polygon-mainnet.g.alchemy.com/v2/52dAueBzsF4BxhKzXI_qnz4VXtkbg__A',
-    [Mumbai.chainId]: 'https://polygon-mumbai.g.alchemy.com/v2/7eqHdwIjf-Pj-V5hNVoajru7OKC3y12R',
+    [Polygon.chainId]: process.env.REACT_APP_POLYGON_PROVIDER as string,
+    [Mumbai.chainId]: process.env.REACT_APP_MUMBAI_PROVIDER as string,
   },
   pollingInterval: 100000
 }
-// const config = {
-//   readOnlyChainId: Mainnet.chainId,
-//   readOnlyUrls: {
-//     [Mainnet.chainId]: 'https://mainnet.infura.io/v3/ab4e972030894b5a979e8a1c6640dc03',
-//   },
-// }
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

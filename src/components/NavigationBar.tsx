@@ -23,12 +23,12 @@ import { Link as ReachLink} from 'react-router-dom'
 import {
   FiHome,
   FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
   FiMenu,
   FiSun,
   FiMoon,
+  FiCommand,
+  FiBookOpen,
+  FiUsers,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -42,9 +42,9 @@ interface LinkItemProps {
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Welcome', icon: FiHome, route: '/welcome' },
   { name: 'Dashboard', icon: FiTrendingUp, route: '/dashboard'  },
-  { name: 'Explore', icon: FiCompass, route: '/welcome' },
-  { name: 'Favourites', icon: FiStar, route: '/welcome' },
-  { name: 'Settings', icon: FiSettings, route: '/welcome' },
+  { name: 'Contract', icon: FiCommand, route: '/contract' },
+  { name: 'About', icon: FiBookOpen, route: '/about' },
+  { name: 'Team', icon: FiUsers, route: '/team' },
 ];
 
 export default function SidebarWithHeader({
