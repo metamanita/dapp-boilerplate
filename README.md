@@ -1,3 +1,12 @@
+# dApp-Boilerplate
+
+Not much, it just interacts with blockchains and looks kinda cool.
+With React, Typescript, useDapp, Chakra UI & Chakra Templates
+
+# Setup
+
+Copy `.env.example` to `.env` and set your API Keys
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
